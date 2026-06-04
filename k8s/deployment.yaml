@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: simple-html-app
+  name: my-nginx
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: simple-html-app
+      app: my-nginx
   template:
     metadata:
       labels:
-        app: simple-html-app
+        app: my-nginx
     spec:
       containers:
-      - name: simple-html-app
-        image: your-dockerhub-username/simple-html-app:latest
-        ports:
-        - containerPort: 80
+        - name: nginx
+          image: nginx:alpine   # <-- ready-made image from DockerHub
+          ports:
+            - containerPort: 80
